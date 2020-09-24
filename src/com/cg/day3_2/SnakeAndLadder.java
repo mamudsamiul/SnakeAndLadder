@@ -10,28 +10,37 @@ public class SnakeAndLadder {
 		final int NO_PLAY=2;
 		
 		
+		Random rand = new Random();//Instance of random class
+		System.out.println("Welcome to Snake and Ladder game");
 		
 		int player_one_position=0;
+		while(player_one_position<=100) {
 		
-		Random rand = new Random();//Instance of random class
 		int randNumber=rand.nextInt(100);//Generating random number in between 0 and 100
 		int numberCheck=(randNumber%6)+1;
-		
-		System.out.println("Welcome to Snake and Ladder game");
 		
 		System.out.println("Your Number is  : "+ numberCheck);
 		int moveOption=rand.nextInt()%3;
 		
 		switch(moveOption) {
 		case IS_LADDER:
+			System.out.println("Ladder");
 			player_one_position+=numberCheck;
 			break;
 		case IS_SNAKE:
-			player_one_position-=numberCheck;
+			System.out.println("Snake");
+			if(player_one_position>numberCheck)
+				player_one_position-=numberCheck;
+			else
+				player_one_position=0;
+			
+			
 			break;
 		default:
+			System.out.println("No move");
 			
 		
+		}
 		}
 		
 		System.out.println("Your Final position is: "+player_one_position);
