@@ -14,7 +14,7 @@ public class SnakeAndLadder {
 		System.out.println("Welcome to Snake and Ladder game");
 		
 		int player_one_position=0;
-		while(player_one_position<=100) {
+		while(player_one_position<100) {
 		
 		int randNumber=rand.nextInt(100);//Generating random number in between 0 and 100
 		int numberCheck=(randNumber%6)+1;
@@ -25,7 +25,12 @@ public class SnakeAndLadder {
 		switch(moveOption) {
 		case IS_LADDER:
 			System.out.println("Ladder");
-			player_one_position+=numberCheck;
+			if(player_one_position>=94 && (player_one_position+numberCheck)!=100)
+			{
+				System.out.println("Better luck next time");
+			}
+			else
+				player_one_position+=numberCheck;
 			break;
 		case IS_SNAKE:
 			System.out.println("Snake");
@@ -41,6 +46,7 @@ public class SnakeAndLadder {
 			
 		
 		}
+		System.out.println("Current Position "+ player_one_position);
 		}
 		
 		System.out.println("Your Final position is: "+player_one_position);
